@@ -87,7 +87,7 @@ document.getElementById("feedbackForm").addEventListener("submit", async (e) => 
   const form = e.target;
   const formData = {
     name: form.name.value,
-    email: form.email.value,
+    email: form.mail.value,
     mobileNumber: form.mobileNumber.value,
     subject: form.subject.value,
     message: form.message.value,
@@ -116,4 +116,4 @@ document.getElementById("feedbackForm").addEventListener("submit", async (e) => 
     document.getElementById("formMessage").textContent =
       "❌ Failed to send. Please try again later.";
   }
-});
+});  
