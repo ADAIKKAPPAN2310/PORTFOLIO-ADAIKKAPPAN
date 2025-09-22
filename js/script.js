@@ -79,3 +79,41 @@ ScrollReveal().reveal('.home-content, .heading', { origin: 'top' });
 ScrollReveal().reveal('.home-img img, .services-container, .portfolio-box, .testimonial-wrapper, .contact form', { origin: 'bottom' });
 ScrollReveal().reveal('.home-content h1, .about-img img', { origin: 'left' });
 ScrollReveal().reveal('.home-content h3, .home-content p, .about-content', { origin: 'right' });
+
+//Form Submission
+document.getElementById("feedbackForm").addEventListener("submit", async (e) => {
+  e.preventDefault(); // stop page reload
+
+  const form = e.target;
+  const formData = {
+    name: form.name.value,
+    email: form.email.value,
+    mobileNumber: form.mobileNumber.value,
+    subject: form.subject.value,
+    message: form.message.value,
+  };
+
+  try {
+    const response = await fetch("https://portfolio-backend-dkoj.onrender.com/submit", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(formData),
+    });
+
+    const result = await response.json();
+    const msg = document.getElementById("formMessage");
+
+    if (response.ok) {
+      msg.textContent = "✅ Thank you! Your message has been sent.";
+      msg.style.color = "green";
+      form.reset();
+    } else {
+      msg.textContent = "❌ Something went wrong: " + result.error;
+      msg.style.color = "red";
+    }
+  } catch (err) {
+    console.error(err);
+    document.getElementById("formMessage").textContent =
+      "❌ Failed to send. Please try again later.";
+  }
+});

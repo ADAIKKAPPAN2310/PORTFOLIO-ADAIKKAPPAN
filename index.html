@@ -15,6 +15,8 @@
 
     <!-- custom css -->
     <link rel="stylesheet" href="css/style.css">
+    <!-- custom js -->
+    <script defer src="js/script.js"></script>
 </head>
 
 <body>
@@ -45,7 +47,7 @@
                 I'm a web developer who loves to create beautiful and functional websites
                 for people who want to make a difference in the world.
             </p>
-            <p>I'm a developer who enjoys exploring web technologies and building projects. 
+            <p>I'm a developer who enjoys exploring web technologies and building projects.
                 I'm always looking for new challenges to grow my skills and creativity.</p>
 
             <div class="social-media">
@@ -262,7 +264,7 @@
     <section class="contact" id="contact">
         <h2 class="heading">Contact <span>Me!</span></h2>
 
-        <form action="https://formsubmit.co/adaikkappanoneman@gmail.com" method="post">
+        <form id="feedbackForm">
             <div class="input-box">
                 <input type="text" placeholder="Full Name" name="name" required>
                 <input type="email" placeholder="Email Address" name="mail" required>
@@ -272,8 +274,9 @@
                 <input type="text" placeholder="Email Subject" name="Subject">
             </div>
             <textarea name="message" id="" cols="30" rows="10" placeholder="Your Message" required></textarea>
-            <input type="submit" value="SendMessage" class="btn">
+            <input type="submit" value="Send Message" class="btn">
         </form>
+        <p id="formMessage"></p>
     </section>
 
     <!-- footer design -->
@@ -294,8 +297,6 @@
     <!-- swiper js -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
 
-    <!-- custom js -->
-    <script src="js/script.js"></script>
 </body>
 
 </html>
